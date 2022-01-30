@@ -16,12 +16,25 @@ var setDate = function () {
 
 var saveSchedule = function () {
     // save the array of timeblocks to local storage stirngy etc
-
+    // Bundle the timblock as an object and save that object to local storage
+    localStorage.setItem('');
 };
 
 var loadSchedule = function() {
 
-        // code to create an array of timeblock objects
+// code to create an array of timeblock objects
 };
+
+// click event listener for the time-block class and target the specific line with this
+
+$(".row").click(function () {
+    var eventText = $(this).text();
+    var eventArr = eventText.split(" ");
+
+    console.log(eventText);
+    console.log(eventArr[0]);
+    console.log(eventArr[1]);
+});
+
 
 setDate();
