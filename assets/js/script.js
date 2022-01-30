@@ -7,8 +7,8 @@
 
 
 */
-// declare object to hold the scheudle object
-var timeBlock = {};
+// variable to select the schedule container for appending
+var scheduleEl = document.querySelector("#schedule");
 
 var setDate = function () {
     // create date variable with date formated to spec
@@ -43,6 +43,24 @@ var loadSchedule = function () {
         }
     };
 };
+/*
+var createTimeBlock = function (time) {
+    // based on 24hr clock, determine if am or pm based on time value
+    if (time < 12) {
+        var oDay = "am";
+    } else {
+        var oDay = "pm";
+    }
+
+    var blockEl = $("<div>").addClass("row col-12");
+    var timeEl = $("<div>").addClass("hour time-block col-2").text(time + oDay);
+    var textEl = $("<textarea>").addClass("col-8 text-center").attr("id", time);
+    var buttonEl = $("<button>").addClass("saveBtn col-2").attr("id", "btn-" + time);
+
+    blockEl.append(timeEl, textEl, buttonEl);
+    scheduleEl.append(blockEl);
+}
+*/
 
 $(".saveBtn").click(function () {
     // save button is clicked and we then pull its ID, btn-8 for example.
@@ -58,7 +76,6 @@ $(".saveBtn").click(function () {
     // use 24 hour clock on the backend
     localStorage.setItem("hr" + input, JSON.stringify(value));
 });
-
 
 setDate();
 loadSchedule();
